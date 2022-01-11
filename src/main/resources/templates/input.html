@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Input values</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="sunstyle.css">
+</head>
+<body>
+<h1>SunCalculator</h1>
+<form action="#" th:action="@{/input}" th:object="${input}" method="post">
+    <p>Year: <input type="text" th:field="*{year}" /></p>
+    <p>Month: <input type="text" th:field="*{month}" /></p>
+    <p>Day: <input type="text" th:field="*{day}" /></p>
+    <p>Time of Day: <input type="text" th:field="*{timeDay}" /></p>
+    <p>Latitude: <input type="text" th:field="*{latitude}" /></p>
+    <p>Longitude: <input type="text" th:field="*{longitude}" /></p>
+    <p>TimeZone: <input type="text" th:field="*{timeZone}" /></p>
+    <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+</form>
+</body>
+</html>

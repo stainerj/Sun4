@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="sunstyle.css">
+</head>
+<body>
+<h1>Result</h1>
+<p th:text="'TimeZone: ' + ${input.timeZone}"></p>
+<p th:text="'Julian Day: ' + ${input.julianDay}"></p>
+<p th:text="'Date/Time: ' + ${input.dateTimeString}"></p>
+<p th:text="'Latitude/Longitude: ' + ${input.latLongString}"></p>
+<p th:text="'Azimuth: ' + ${input.azimuth}"></p>
+<p th:text="'Altitude: ' + ${input.altitude}"></p>
+<p th:text="'Sky: ' + ${input.daylightString}"></p>
+<p th:text="'Transit Time: ' + ${input.transitString}"></p>
+<p th:text="'Right Ascension: ' + ${input.rASun}"></p>
+<p th:text="'Declination: ' + ${input.decSun}"></p>
+<p th:text="'Sunrise Time: ' + ${input.sunRiseString}"></p>
+<p th:text="'Sunset Time: ' + ${input.sunSetString}"></p>
+<a href="/input">Calculate for another time & location</a>
+</body>
+</html>
