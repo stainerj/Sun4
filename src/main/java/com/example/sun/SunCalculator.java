@@ -155,18 +155,26 @@ public class SunCalculator {
         return latLongString;
     }
 
-    //calculate azimuth and altitude; return azimuth
-    public double getAzimuth() {
+    //return right ascension & declination after equatorialCoordinates has executed
+    public double getrASun () {
         meanAnomaly();
         equationCentre();
         eclipticalCoordinates();
         equatorialCoordinates();
+        return rASun; }
+
+    public double getDecSun() {
+        return decSun; }
+
+    //calculate azimuth and altitude; return azimuth
+    public double getAzimuth() {
         observer();
         return azimuth;
     }
 
     //return altitude
-    public double getAltitude() { return altitude; }
+    public double getAltitude() {
+        return altitude; }
 
     //return day/night/twilight sky state
     public String getDaylightString() { return daylightString; }
@@ -179,9 +187,7 @@ public class SunCalculator {
     }
 
     //return right ascension & declination when repetition completed but before rise and set calculations
-    public double getrASun () { return rASun; }
 
-    public double getDecSun() { return decSun; }
 
     //calculate sunrise and sunset times; return sunrise time as a string
     public String getSunRiseString() {
