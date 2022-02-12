@@ -27,13 +27,36 @@ class SunApplicationTests {
 	}
 
 	@Test
+	void getrASun() {
+		SunCalculator sc = new SunCalculator();
+		sc.setTimeZone(0);
+		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
+		sc.setLatitude(54);
+		sc.setLongitude(-5);
+		assertThat(sc.getrASun()).isEqualTo("281.0587");
+	}
+
+	@Test
+	void getDecSun() {
+		SunCalculator sc = new SunCalculator();
+		sc.setTimeZone(0);
+		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
+		sc.setLatitude(54);
+		sc.setLongitude(-5);
+		sc.getrASun();
+		assertThat(sc.getDecSun()).isEqualTo("-23.0499");
+	}
+
+	@Test
 	void getAzimuth() {
 		SunCalculator sc = new SunCalculator();
 		sc.setTimeZone(0);
 		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
 		sc.setLatitude(54);
 		sc.setLongitude(-5);
-		assertThat(sc.getAzimuth()).isEqualTo(349.44018265662);
+		sc.getrASun();
+		sc.observer();
+		assertThat(sc.getAzimuth()).isEqualTo("349.4402");
 	}
 
 	@Test
@@ -43,8 +66,9 @@ class SunApplicationTests {
 		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
 		sc.setLatitude(54);
 		sc.setLongitude(-5);
+		sc.getrASun();
 		sc.getAzimuth();
-		assertThat(sc.getAltitude()).isEqualTo(-58.72850606605919);
+		assertThat(sc.getAltitude()).isEqualTo("-58.7285");
 	}
 
 	@Test
@@ -58,29 +82,7 @@ class SunApplicationTests {
 		assertThat(sc.getTransitString()).isEqualTo("12.24 local (UTC +0)");
 	}
 
-	@Test
-	void getrASun() {
-		SunCalculator sc = new SunCalculator();
-		sc.setTimeZone(0);
-		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
-		sc.setLatitude(54);
-		sc.setLongitude(-5);
-		sc.getAzimuth();
-		sc.solarTransit();
-		assertThat(sc.getrASun()).isEqualTo(280.5243812994038);
-	}
 
-	@Test
-	void getDecSun() {
-		SunCalculator sc = new SunCalculator();
-		sc.setTimeZone(0);
-		sc.dateTimeToJulianDay(2022, 1, 1, 0.00);
-		sc.setLatitude(54);
-		sc.setLongitude(-5);
-		sc.getAzimuth();
-		sc.solarTransit();
-		assertThat(sc.getDecSun()).isEqualTo(-23.086597378695984);
-	}
 
 	@Test
 	void getSunRiseString() {

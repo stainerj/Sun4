@@ -5,6 +5,7 @@ import java.text.DecimalFormat;
 public class SunCalculator {
 
     private final DecimalFormat df2 = new DecimalFormat("00.00");
+    private final DecimalFormat df4 = new DecimalFormat("0.0000");
     private final DecimalFormat dfw = new DecimalFormat("##");
     private final DecimalFormat dfm = new DecimalFormat("00");
     private final DecimalFormat dfn = new DecimalFormat("0");
@@ -141,9 +142,9 @@ public class SunCalculator {
     }
 
     //convert input date and time to julian day
-    public double getJulianDay() {
+    public String getJulianDay() {
         dateTimeToJulianDay(year, month, day, timeDay);
-        return julianDay;
+        return df4.format(julianDay);
     }
 
     //return the date and time as a string
@@ -156,25 +157,25 @@ public class SunCalculator {
     }
 
     //return right ascension & declination after equatorialCoordinates has executed
-    public double getrASun () {
+    public String getrASun () {
         meanAnomaly();
         equationCentre();
         eclipticalCoordinates();
         equatorialCoordinates();
-        return rASun; }
+        return df4.format(rASun); }
 
-    public double getDecSun() {
-        return decSun; }
+    public String getDecSun() {
+        return df4.format(decSun); }
 
     //calculate azimuth and altitude; return azimuth
-    public double getAzimuth() {
+    public String getAzimuth() {
         observer();
-        return azimuth;
+        return df4.format(azimuth);
     }
 
     //return altitude
-    public double getAltitude() {
-        return altitude; }
+    public String getAltitude() {
+        return df4.format(altitude); }
 
     //return day/night/twilight sky state
     public String getDaylightString() { return daylightString; }
@@ -185,9 +186,6 @@ public class SunCalculator {
         transitString = julianDayToTime(jTransit, julianDayRaw);
         return transitString;
     }
-
-    //return right ascension & declination when repetition completed but before rise and set calculations
-
 
     //calculate sunrise and sunset times; return sunrise time as a string
     public String getSunRiseString() {
