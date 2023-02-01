@@ -1,5 +1,21 @@
 body {
-	margin: 10px;
+    margin: 10px;
 	font-family: Arial,Helvetica,sans-serif;
-	background-color: #cccc00;
+	/*background-color: #cccc00;*/
+}
+
+h1 {
+    color: white;
+}
+
+p {
+    color: white;
+}
+
+html {
+    height: 100%;
+    /*background: linear-gradient(to right bottom, #0084ff, #379eff, #7bbfff, #add7ff);*/
+    /*background: linear-gradient(to right bottom, #007AE5, #006CCC, #0065B2, #005699);*/
+    background: linear-gradient(to right bottom, #004272, #005999, #006FBF, #0082E5);
+    background-repeat: no-repeat;
 }

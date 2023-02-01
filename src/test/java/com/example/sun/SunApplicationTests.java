@@ -82,8 +82,6 @@ class SunApplicationTests {
 		assertThat(sc.getTransitString()).isEqualTo("12.24 local (UTC +0)");
 	}
 
-
-
 	@Test
 	void getSunRiseString() {
 		SunCalculator sc = new SunCalculator();

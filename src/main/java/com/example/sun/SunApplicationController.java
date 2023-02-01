@@ -20,4 +20,5 @@ public class SunApplicationController {
         model.addAttribute("input", suncalc);
         return "result";
     }
+
 }
